@@ -4,22 +4,10 @@ spring:
   jpa:
     show-sql: true
   datasource:
-    url: jdbc:postgresql://localhost:5432/TeamUp
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://uwu-devcrew.ru:5432/Hackaton2024
+    username: Hackaton2024
+    password: eqwfmoijmoiweqfiomegwjoigbrwejoiebrhjiuhiwvdchuiowdcvopjisxdcvoliknvsripuniouwevrhnuiovwrehiup
     driver-class-name: org.postgresql.Driver
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: my.teamup.platform@gmail.com
-    password: pkfqcauuhwmitfzg
-    test-connection: true
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
 
 eureka:
   client:
