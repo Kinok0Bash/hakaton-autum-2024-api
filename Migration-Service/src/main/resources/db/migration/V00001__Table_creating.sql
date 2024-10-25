@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS "tasks" (
     "create_date" timestamp NOT NULL,
     "statement" varchar(10) NOT NULL,
     PRIMARY KEY ("id"),
-    CONSTRAINT "Projects_fk3" FOREIGN KEY ("employee") REFERENCES "users"("id")
+    CONSTRAINT "tasks_fk3" FOREIGN KEY ("employee") REFERENCES "users"("id")
 );
 
 CREATE TABLE IF NOT EXISTS "comments" (
@@ -26,6 +26,14 @@ CREATE TABLE IF NOT EXISTS "comments" (
     "user" uuid NOT NULL ,
     "task" uuid NOT NULL ,
     PRIMARY KEY ("id"),
-    CONSTRAINT "Projects_fk2" FOREIGN KEY ("user") REFERENCES "users"("id"),
-    CONSTRAINT "Projects_fk3" FOREIGN KEY ("task") REFERENCES "tasks"("id")
+    CONSTRAINT "comments_fk2" FOREIGN KEY ("user") REFERENCES "users"("id"),
+    CONSTRAINT "comments_fk3" FOREIGN KEY ("task") REFERENCES "tasks"("id")
 );
+
+CREATE TABLE IF NOT EXISTS "refresh_tokens" (
+    "id" uuid NOT NULL UNIQUE ,
+    "user" uuid NOT NULL UNIQUE ,
+    "token" text NOT NULL UNIQUE ,
+    PRIMARY KEY ("id"),
+    CONSTRAINT "refresh_tokens_fk1" FOREIGN KEY ("user") REFERENCES "users"("id")
+)
