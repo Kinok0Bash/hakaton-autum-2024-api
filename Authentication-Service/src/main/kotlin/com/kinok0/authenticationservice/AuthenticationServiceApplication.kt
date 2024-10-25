@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableJpaRepositories(basePackages = ["com.kinok0.authenticationservice.repository"])
-@EntityScan(basePackages = ["com.kinok0.migrationservice.entity"])
 class AuthenticationServiceApplication
 
 fun main(args: Array<String>) {
