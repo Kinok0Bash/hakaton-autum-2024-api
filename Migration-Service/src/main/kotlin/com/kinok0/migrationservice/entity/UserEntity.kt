@@ -21,20 +21,20 @@ data class UserEntity(
     var password: String,
 
     @Column(name = "role", nullable = false)
-    var role: String,
+    var role: Role,
 
-    @Column(name = "position", nullable = false)
-    var position: String,
+    @Column(name = "position")
+    var position: String? = null,
 
-    @Column(name = "avatar", nullable = false)
-    var avatar: ByteArray,
+    @Column(name = "avatar")
+    var avatar: ByteArray? = null,
 
     @OneToMany(mappedBy = "employee")
-    var tasks: MutableList<TaskEntity>,
+    var tasks: MutableList<TaskEntity>? = null,
 
     @OneToMany(mappedBy = "user")
-    var comments: MutableList<CommentEntity>,
+    var comments: MutableList<CommentEntity>? = null,
 
     @OneToMany(mappedBy = "user")
-    var tokens: MutableList<RefreshTokenEntity>
+    var tokens: MutableList<RefreshTokenEntity>? = null
 )

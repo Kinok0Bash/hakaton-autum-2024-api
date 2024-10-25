@@ -18,7 +18,7 @@ data class TaskEntity (
     @Column(name = "description", nullable = false)
     var description: String,
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee", referencedColumnName = "id")
     @Column(name = "employee", nullable = false)
     var employee: UserEntity,
@@ -27,9 +27,9 @@ data class TaskEntity (
     var createDate: LocalDateTime,
 
     @Column(name = "statement", nullable = false)
-    var statement: String,
+    var statement: TaskStatement,
 
-    @OneToMany(mappedBy = "task")
-    var comments: MutableList<CommentEntity>
+    @OneToMany(mappedBy = "task", fetch = FetchType.LAZY)
+    var comments: MutableList<CommentEntity>? = null
 )
 

@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: Migration-Service
+  datasource:
+    url: jdbc:postgresql://uwu-devcrew.ru:5432/Hackaton2024
+    username: Hackaton2024
+    password: eqwfmoijmoiweqfiomegwjoigbrwejoiebrhjiuhiwvdchuiowdcvopjisxdcvoliknvsripuniouwevrhnuiovwrehiup
+    driver-class-name: org.postgresql.Driver
