@@ -14,7 +14,7 @@ data class CommentEntity(
     var comment: String,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user", referencedColumnName = "id")
+    @JoinColumn(name = "\"user\"", referencedColumnName = "id")
     var user: UserEntity,
 
     @ManyToOne(fetch = FetchType.LAZY)

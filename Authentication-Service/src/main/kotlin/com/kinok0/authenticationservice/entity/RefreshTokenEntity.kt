@@ -11,7 +11,7 @@ data class RefreshTokenEntity(
     var id: UUID? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user", referencedColumnName = "id", nullable = false, unique = false)
+    @JoinColumn(name = "\"user\"", referencedColumnName = "id", nullable = false, unique = false)
     var user: UserEntity,
 
     @Column(name = "token", nullable = false, unique = true)
