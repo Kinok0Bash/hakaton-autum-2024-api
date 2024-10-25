@@ -122,12 +122,18 @@ class AuthenticationService(
 
         val user = userRepository.findByLogin(jwtService.extractUsername(userToken))
 
+        var isValidToken = false
+
         val refreshTokens: MutableList<RefreshTokenEntity> = refreshTokensRepository.findAll()
         for (token in refreshTokens) {
             if (token.token == userToken) {
-                logger.error("Token not valid")
-                throw Exception("Token not valid")
+                isValidToken = true
             }
+        }
+
+        if (!isValidToken) {
+            logger.error("Token not valid")
+            throw Exception("Token not valid")
         }
 
         val userDetails = user.convertToUserDTO()
