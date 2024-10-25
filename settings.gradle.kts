@@ -3,3 +3,7 @@ plugins {
 }
 rootProject.name = "hakaton-autum-2024-api"
 
+include("Authentication-Service")
+include("Eureka-Server")
+include("Gateway")
+include("Migration-Service")

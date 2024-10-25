@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: Gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+
+gateway:
+  routes:
+    - id: id1
+      path: path1
+      uri: uri1
+    - id: id2
+      path: path2
+      uri: uri2
+
+server:
+  port: 8080
