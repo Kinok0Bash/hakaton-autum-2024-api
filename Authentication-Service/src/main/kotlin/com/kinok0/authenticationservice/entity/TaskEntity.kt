@@ -19,8 +19,7 @@ data class TaskEntity (
     var description: String,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "employee", referencedColumnName = "id")
-    @Column(name = "employee", nullable = false)
+    @JoinColumn(name = "employee", referencedColumnName = "id", nullable = false)
     var employee: UserEntity,
 
     @Column(name="create_date", nullable = false)
