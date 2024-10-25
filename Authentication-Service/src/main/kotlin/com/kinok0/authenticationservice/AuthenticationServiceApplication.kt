@@ -7,7 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EntityScan(basePackages = ["com.uwu.migrationservice.entity"])
+@EntityScan(basePackages = ["com.kinok0.migrationservice.entity"])
 class AuthenticationServiceApplication
 
 fun main(args: Array<String>) {
