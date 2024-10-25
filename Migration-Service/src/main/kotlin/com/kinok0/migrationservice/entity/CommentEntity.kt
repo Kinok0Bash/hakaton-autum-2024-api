@@ -13,11 +13,11 @@ data class CommentEntity(
     @Column(name = "comment", nullable = false)
     var comment: String,
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user", referencedColumnName = "id")
     var user: UserEntity,
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "task", referencedColumnName = "id")
     var task: TaskEntity
 )

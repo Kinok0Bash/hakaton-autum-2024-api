@@ -4,6 +4,7 @@ plugins {
 	id("org.springframework.boot") version "3.3.5"
 	id("io.spring.dependency-management") version "1.1.6"
 	kotlin("plugin.jpa") version "1.9.25"
+	id("maven-publish")
 }
 
 group = "com.kinok0"
@@ -44,4 +45,20 @@ allOpen {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+publishing {
+	publications {
+		create<MavenPublication>("mavenJava") {
+			from(components["java"])
+
+			groupId = "com.kinok0"
+			artifactId = "migration-service"
+			version = "1.0.0"
+		}
+	}
+
+	repositories {
+		mavenLocal()
+	}
 }

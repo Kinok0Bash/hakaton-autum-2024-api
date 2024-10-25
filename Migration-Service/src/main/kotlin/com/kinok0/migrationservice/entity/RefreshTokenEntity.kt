@@ -10,7 +10,7 @@ data class RefreshTokenEntity(
     @GeneratedValue(strategy = GenerationType.UUID)
     var id: UUID? = null,
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user", referencedColumnName = "id", nullable = false, unique = false)
     var user: UserEntity,
 
