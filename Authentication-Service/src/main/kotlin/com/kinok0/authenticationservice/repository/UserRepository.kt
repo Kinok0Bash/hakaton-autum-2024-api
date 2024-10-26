@@ -1,6 +1,6 @@
 package com.kinok0.authenticationservice.repository
 
-import com.kinok0.migrationservice.entity.UserEntity
+import com.kinok0.authenticationservice.entity.UserEntity
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository

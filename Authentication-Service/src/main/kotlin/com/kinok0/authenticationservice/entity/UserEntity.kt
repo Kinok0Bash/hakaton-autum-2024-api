@@ -1,4 +1,4 @@
-package com.kinok0.migrationservice.entity
+package com.kinok0.authenticationservice.entity
 
 import jakarta.persistence.*
 import java.util.*
