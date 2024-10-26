@@ -33,12 +33,13 @@ public class TaskEntity {
     private Integer priority;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "employee", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "employee", referencedColumnName = "id")
     private UserEntity employee;
 
     @Column(name="create_date", nullable = false)
     private LocalDateTime createDate;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "statement", nullable = false)
     private TaskStatement statement;
 
