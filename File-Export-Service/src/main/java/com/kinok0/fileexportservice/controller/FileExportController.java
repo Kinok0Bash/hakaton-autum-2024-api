@@ -22,38 +22,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/exportfile")
+@RequestMapping("/api/export-file")
 public class FileExportController {
-   // private UserService userService;
     private TaskService taskService;
-   //private CommentService commentService;
 
+    public FileExportController(TaskService taskService) {
 
-    public FileExportController(/*UserService userService,*/ TaskService taskService/*, CommentService commentService*/) {
-        //this.userService = userService;
         this.taskService = taskService;
-      //  this.commentService = commentService;
     }
-//
-//    @GetMapping("/users")
-//    public List<UserEntity> getAllUser(){
-//        return userService.findAll();
-//    }
-//
-//
-//    @GetMapping("/tasks")
-//    public List<TaskEntity> getAllTask(){
-//        return taskService.findAll();
-//    }
-//
-//    @PostMapping()
-//    public ResponseEntity<HttpStatus> init() {
-//        userService.init();
-//        taskService.init();
-//        commentService.init();
-//
-//        return new ResponseEntity<>(HttpStatus.CREATED);
-//    }
+
 
     @GetMapping()
     public ResponseEntity<byte[]> exportFile() {

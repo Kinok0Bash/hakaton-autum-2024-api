@@ -29,6 +29,9 @@ public class TaskEntity {
     @Column(name = "description", nullable = false)
     private String description;
 
+    @Column(name = "priority", nullable = false)
+    private Integer priority;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee", referencedColumnName = "id", nullable = false)
     private UserEntity employee;
@@ -42,11 +45,12 @@ public class TaskEntity {
     @OneToMany(mappedBy = "task", fetch = FetchType.LAZY)
     private List<CommentEntity> comments;
 
-    public TaskEntity(String name, String description,
+    public TaskEntity(String name, String description, Integer priority,
                       UserEntity employee, LocalDateTime createDate,
                       TaskStatement statementl) {
         this.name = name;
         this.description = description;
+        this.priority = priority;
         this.employee = employee;
         this.createDate = createDate;
         this.statementl = statementl;
