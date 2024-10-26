@@ -40,19 +40,19 @@ public class TaskEntity {
     private LocalDateTime createDate;
 
     @Column(name = "statement", nullable = false)
-    private TaskStatement statementl;
+    private TaskStatement statement;
 
     @OneToMany(mappedBy = "task", fetch = FetchType.LAZY)
     private List<CommentEntity> comments;
 
     public TaskEntity(String name, String description, Integer priority,
                       UserEntity employee, LocalDateTime createDate,
-                      TaskStatement statementl) {
+                      TaskStatement statement) {
         this.name = name;
         this.description = description;
         this.priority = priority;
         this.employee = employee;
         this.createDate = createDate;
-        this.statementl = statementl;
+        this.statement = statement;
     }
 }
