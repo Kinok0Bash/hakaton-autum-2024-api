@@ -12,6 +12,9 @@ gateway:
     - id: authentication-service
       path: /api/authentication/**
       uri: lb://authentication-service
+    - id: kanban-service
+      path: /api/kanban/**
+      uri: lb://kanban-service
 
 server:
   port: 8080
