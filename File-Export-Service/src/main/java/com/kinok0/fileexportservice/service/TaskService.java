@@ -2,9 +2,7 @@ package com.kinok0.fileexportservice.service;
 
 import com.kinok0.fileexportservice.entity.TaskEntity;
 import com.kinok0.fileexportservice.repository.TaskRepository;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Service;
 
@@ -27,12 +25,24 @@ public class TaskService {
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Tasks");
 
-        Row header = sheet.createRow(0);
-        header.createCell(0).setCellValue("Title");
-        header.createCell(1).setCellValue("Title HTML");
-        header.createCell(2).setCellValue("Description");
-        header.createCell(3).setCellValue("Fio and login executor");
-        header.createCell(4).setCellValue("Comments");
+        // Создание стиля для заголовков
+        CellStyle headerStyle = workbook.createCellStyle();
+        Font headerFont = workbook.createFont();
+        headerFont.setBold(true);
+        headerFont.setFontHeightInPoints((short) (12 + 2)); // Увеличиваем размер шрифта на 2 пункта
+        headerStyle.setFont(headerFont);
+
+        Row headerRow = sheet.createRow(0);
+        Cell headerCell = headerRow.createCell(0);
+        headerCell.setCellValue("Title");
+        headerCell.setCellStyle(headerStyle); // Применение стиля к заголовку
+        headerRow.createCell(1).setCellValue("Description");
+        headerRow.getCell(1).setCellStyle(headerStyle);
+        headerRow.createCell(2).setCellValue("Responsible for the task");
+        headerRow.getCell(2).setCellStyle(headerStyle);
+        headerRow.createCell(3).setCellValue("Comments");
+        headerRow.getCell(3).setCellStyle(headerStyle);
+
 
         int rowCount = 1;
         StringBuffer sb = new StringBuffer();
@@ -41,13 +51,12 @@ public class TaskService {
 
             Row row = sheet.createRow(rowCount++);
             row.createCell(0).setCellValue(task.getName());
-            row.createCell(1).setCellValue(task.getHtmlName());
-            row.createCell(2).setCellValue(task.getDescription());
-            row.createCell(3).setCellValue(task.getEmployee().getName() + ", Log:" + task.getEmployee().getLogin());
+            row.createCell(1).setCellValue(task.getDescription());
+            row.createCell(2).setCellValue(task.getEmployee().getName());
 
-            task.getComments().stream().forEach(o-> sb.append(o.getComment()));
+            task.getComments().stream().forEach(o-> sb.append(o.getUser().getName()+ ": "+ o.getComment() + "; "));
 
-            row.createCell(4).setCellValue(sb.toString());
+            row.createCell(3).setCellValue(sb.toString());
         }
 
         try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {

@@ -10,20 +10,16 @@ spring:
         show_sql: true
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/hack2024
-    username: postgres
-    password: PosTer231
+    url: jdbc:postgresql://uwu-devcrew.ru:5432/Hackaton2024
+    username: Hackaton2024
+    password: eqwfmoijmoiweqfiomegwjoigbrwejoiebrhjiuhiwvdchuiowdcvopjisxdcvoliknvsripuniouwevrhnuiovwrehiup
     driver-class-name: org.postgresql.Driver
 
 eureka:
   client:
     service-url:
-#      defaultZone: http://eureka-server:8761/eureka
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://eureka-server:8761/eureka
 
-logging:
-  level:
-    web: debug
 
 server:
   port: 8090
