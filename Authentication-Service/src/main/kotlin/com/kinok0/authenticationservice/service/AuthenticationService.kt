@@ -3,15 +3,13 @@ package com.kinok0.authenticationservice.service
 import com.kinok0.authenticationservice.dto.request.AuthenticationRequest
 import com.kinok0.authenticationservice.dto.request.RegistrationRequest
 import com.kinok0.authenticationservice.dto.response.AuthenticationResponse
+import com.kinok0.authenticationservice.entity.RefreshTokenEntity
+import com.kinok0.authenticationservice.entity.Role
+import com.kinok0.authenticationservice.entity.UserEntity
 import com.kinok0.authenticationservice.repository.RefreshTokensRepository
 import com.kinok0.authenticationservice.repository.UserRepository
 import com.kinok0.authenticationservice.util.convertToMemberData
 import com.kinok0.authenticationservice.util.convertToUserDTO
-import com.kinok0.migrationservice.entity.RefreshTokenEntity
-import com.kinok0.migrationservice.entity.Role
-import com.kinok0.migrationservice.entity.UserEntity
-import jakarta.mail.internet.AddressException
-import jakarta.mail.internet.InternetAddress
 import jakarta.servlet.http.Cookie
 import jakarta.servlet.http.HttpServletResponse
 import org.slf4j.Logger
@@ -124,22 +122,30 @@ class AuthenticationService(
 
         val user = userRepository.findByLogin(jwtService.extractUsername(userToken))
 
+        var isValidToken = false
+
         val refreshTokens: MutableList<RefreshTokenEntity> = refreshTokensRepository.findAll()
         for (token in refreshTokens) {
             if (token.token == userToken) {
-                logger.error("Token not valid")
-                throw Exception("Token not valid")
+                isValidToken = true
             }
+        }
+
+        if (!isValidToken) {
+            logger.error("Token not valid")
+            throw Exception("Token not valid")
         }
 
         val userDetails = user.convertToUserDTO()
 
         val tokens = jwtService.generateTokens(userDetails)
 
-        refreshTokensRepository.save(RefreshTokenEntity(
+        refreshTokensRepository.save(
+            RefreshTokenEntity(
             user = user,
             token = tokens[1]
-        ))
+        )
+        )
 
         userRepository.save(user)
         setRefreshToken(response, tokens[1])

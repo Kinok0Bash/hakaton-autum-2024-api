@@ -1,6 +1,6 @@
 package com.kinok0.authenticationservice.dto
 
-import com.kinok0.migrationservice.entity.Role
+import com.kinok0.authenticationservice.entity.Role
 
 data class MemberData(
     val login: String,

@@ -36,7 +36,7 @@ class JwtService {
         header["typ"] = "JWT"
         header["alg"] = "HS256"
 
-        logger.debug("Tokens for ${userDetails.email} has been generated")
+        logger.debug("Tokens for ${userDetails.login} has been generated")
 
         val tokens = ArrayList<String>()
 

@@ -3,7 +3,7 @@ package com.kinok0.authenticationservice.util
 import com.kinok0.authenticationservice.dto.MemberData
 import com.kinok0.authenticationservice.dto.User
 import com.kinok0.authenticationservice.dto.response.WhoAmIResponse
-import com.kinok0.migrationservice.entity.UserEntity
+import com.kinok0.authenticationservice.entity.UserEntity
 
 fun UserEntity.convertToMemberData() = MemberData(
     login = this.login,

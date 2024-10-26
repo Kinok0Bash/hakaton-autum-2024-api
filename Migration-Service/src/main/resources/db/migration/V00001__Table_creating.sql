@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS "comments" (
 
 CREATE TABLE IF NOT EXISTS "refresh_tokens" (
     "id" uuid NOT NULL UNIQUE ,
-    "user" uuid NOT NULL UNIQUE ,
+    "user" uuid NOT NULL ,
     "token" text NOT NULL UNIQUE ,
     PRIMARY KEY ("id"),
     CONSTRAINT "refresh_tokens_fk1" FOREIGN KEY ("user") REFERENCES "users"("id")

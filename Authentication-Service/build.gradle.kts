@@ -27,9 +27,6 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-    // Entity
-    implementation("com.kinok0:migration-service:1.0.0")
-
     // Web
     implementation("org.springframework.boot:spring-boot-starter-web")
 
