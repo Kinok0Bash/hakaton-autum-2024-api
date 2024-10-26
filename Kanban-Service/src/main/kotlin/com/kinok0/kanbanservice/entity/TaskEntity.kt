@@ -1,4 +1,4 @@
-package com.kinok0.authenticationservice.entity
+package com.kinok0.kanbanservice.entity
 
 import jakarta.persistence.*
 import java.time.LocalDateTime
@@ -25,7 +25,7 @@ data class TaskEntity(
     var priority: Int,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "employee", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "employee", referencedColumnName = "id")
     var employee: UserEntity? = null,
 
     @Column(name = "create_date", nullable = false)
@@ -37,5 +37,3 @@ data class TaskEntity(
     @OneToMany(mappedBy = "task", fetch = FetchType.LAZY)
     var comments: MutableList<CommentEntity>? = null
 )
-
-

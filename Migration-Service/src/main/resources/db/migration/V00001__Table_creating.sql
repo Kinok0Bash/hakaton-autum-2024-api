@@ -11,13 +11,15 @@ CREATE TABLE IF NOT EXISTS "users" (
 
 CREATE TABLE IF NOT EXISTS "tasks" (
     "id" uuid NOT NULL UNIQUE,
-    "name" text NOT NULL,
+    "name" varchar(100) NOT NULL,
+    "html_name" text NOT NULL ,
     "description" text NOT NULL,
+    "priority" int NOT NULL,
     "employee" uuid,
     "create_date" timestamp NOT NULL,
     "statement" varchar(10) NOT NULL,
     PRIMARY KEY ("id"),
-    CONSTRAINT "tasks_fk3" FOREIGN KEY ("employee") REFERENCES "users"("id")
+    CONSTRAINT "tasks_fk5" FOREIGN KEY ("employee") REFERENCES "users"("id")
 );
 
 CREATE TABLE IF NOT EXISTS "comments" (
