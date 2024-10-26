@@ -13,7 +13,7 @@ gateway:
       path: /api/authentication/**
       uri: lb://authentication-service
     - id: file-export-service
-      path: /api/file-export
+      path: /api/export-file/**
       uri: lb://file-export-service
     - id: kanban-service
       path: /api/kanban/**
