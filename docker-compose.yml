@@ -50,6 +50,19 @@ services:
       - backend
     ports:
       - "8082:8082"
+      
+  file-export-service:
+    build:
+      dockerfile: ./Dockerfile
+      context: File-Export-Service
+    image: file-service
+    container_name: file-service
+    depends_on:
+      - eureka-server
+    networks:
+      - backend
+    ports:
+      - "8090:8090"
 
   gateway:
     build:
