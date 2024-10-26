@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/Authentication-Service" />
             <option value="$PROJECT_DIR$/Eureka-Server" />
             <option value="$PROJECT_DIR$/Gateway" />
+            <option value="$PROJECT_DIR$/Kanban-Service" />
             <option value="$PROJECT_DIR$/Migration-Service" />
           </set>
         </option>

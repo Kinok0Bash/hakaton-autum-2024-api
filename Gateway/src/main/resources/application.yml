@@ -15,6 +15,9 @@ gateway:
     - id: file-export-service
       path: /api/file-export
       uri: lb://file-export-service
+    - id: kanban-service
+      path: /api/kanban/**
+      uri: lb://kanban-service
 
 server:
   port: 8080

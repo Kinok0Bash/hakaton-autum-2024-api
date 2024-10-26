@@ -13,11 +13,11 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="hack2024@localhost" uuid="19a30aa5-b95e-4b9e-9a18-de09e1eece6e">
+    <data-source source="LOCAL" name="Hackaton2024@localhost" uuid="d2bd0d7a-1bf8-4418-ba8b-c229dc846726">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/hack2024</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/Hackaton2024</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />

@@ -1,4 +1,4 @@
-package com.kinok0.authenticationservice.entity
+package com.kinok0.kanbanservice.entity
 
 import jakarta.persistence.*
 import java.util.*
