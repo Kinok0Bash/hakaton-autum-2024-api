@@ -23,6 +23,9 @@ public class TaskEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "html_name", nullable = false)
+    private String htmlName;
+
     @Column(name = "description", nullable = false)
     private String description;
 
