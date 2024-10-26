@@ -77,7 +77,7 @@ class JwtService {
             .compact()
 
     private fun extractAllClaims(token: String): Claims =
-         Jwts
+        Jwts
             .parserBuilder()
             .setSigningKey(getSingInKey())
             .build()

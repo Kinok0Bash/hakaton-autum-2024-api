@@ -38,6 +38,19 @@ services:
     ports:
       - "8081:8081"
 
+  kanban-service:
+    build:
+      dockerfile: ./Dockerfile
+      context: Kanban-Service
+    image: kanban-service
+    container_name: kanban-service
+    depends_on:
+      - eureka-server
+    networks:
+      - backend
+    ports:
+      - "8082:8082"
+
   gateway:
     build:
       dockerfile: ./Dockerfile

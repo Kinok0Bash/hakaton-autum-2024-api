@@ -27,7 +27,7 @@ class SecurityConfig(
                 authorizationManagerRequestMatcherRegistry
                     .requestMatchers(
                         "/api/authentication/email/**",
-                        "/api/authentication/who-am-i"
+                        "/api/authentication/whoami"
                     )
                     .authenticated()
                     .anyRequest()
