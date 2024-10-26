@@ -20,6 +20,7 @@ data class UserEntity(
     @Column(name = "password", nullable = false)
     var password: String,
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     var role: Role,
 

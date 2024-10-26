@@ -31,6 +31,7 @@ data class TaskEntity(
     @Column(name = "create_date", nullable = false)
     var createDate: LocalDateTime,
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "statement", nullable = false)
     var statement: TaskStatement,
 
