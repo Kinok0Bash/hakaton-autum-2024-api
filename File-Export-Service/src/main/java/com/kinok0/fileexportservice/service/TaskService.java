@@ -68,7 +68,7 @@ public class TaskService {
 
             Row row = sheet.createRow(rowCount++);
             Cell nameCell = row.createCell(0);
-            nameCell.setCellValue(task.getName());
+            nameCell.setCellValue(convertHtmlTextToText(task.getName()));
             nameCell.setCellStyle(dataStyle);
 
             Cell descriptionCell = row.createCell(1);

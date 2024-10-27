@@ -3,7 +3,6 @@ package com.kinok0.profileservice.service
 import com.kinok0.profileservice.dto.Task
 import com.kinok0.profileservice.dto.request.CommentRequest
 import com.kinok0.profileservice.entity.CommentEntity
-import com.kinok0.profileservice.entity.TaskEntity
 import com.kinok0.profileservice.repository.CommentRepository
 import com.kinok0.profileservice.repository.TaskRepository
 import com.kinok0.profileservice.repository.UserRepository

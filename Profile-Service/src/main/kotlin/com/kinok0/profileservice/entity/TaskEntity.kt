@@ -15,9 +15,6 @@ data class TaskEntity(
     @Column(name = "name", nullable = false)
     var name: String,
 
-    @Column(name = "html_name", nullable = false)
-    var htmlName: String,
-
     @Column(name = "description", nullable = false)
     var description: String,
 

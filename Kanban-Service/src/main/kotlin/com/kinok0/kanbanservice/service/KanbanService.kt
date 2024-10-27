@@ -49,7 +49,6 @@ class KanbanService(
         taskRepository.save(
             TaskEntity(
                 name = request.name,
-                htmlName = request.htmlName,
                 description = request.name,
                 createDate = LocalDateTime.now(),
                 statement = TaskStatement.BACKLOG,
@@ -79,7 +78,6 @@ class KanbanService(
     fun changeName(request: ChangeNameRequest): Task {
         val entity = taskRepository.findTaskEntityById(request.id)
         entity.name = request.name
-        entity.htmlName = request.htmlName
         val response = taskRepository.save(entity)
         logger.info("Name has been changed")
         return response.convertToTaskDTO()

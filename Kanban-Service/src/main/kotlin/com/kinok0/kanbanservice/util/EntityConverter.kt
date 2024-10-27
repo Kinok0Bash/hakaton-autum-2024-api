@@ -8,13 +8,12 @@ import com.kinok0.kanbanservice.entity.UserEntity
 fun TaskEntity.convertToTaskCard() = TaskCard(
     id = this.id!!,
     name = this.name,
-    htmlName = this.htmlName,
     employee = this.employee?.name,
 )
 
 fun TaskEntity.convertToTaskDTO(): Task {
-    val result: Task = Task(
-        name = this.htmlName,
+    val result = Task(
+        name = this.name,
         descryption = this.description,
         employee = this.employee?.convertToUserDTO(),
         createDate = this.createDate,

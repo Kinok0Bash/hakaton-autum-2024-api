@@ -11,8 +11,7 @@ CREATE TABLE IF NOT EXISTS "users" (
 
 CREATE TABLE IF NOT EXISTS "tasks" (
     "id" uuid NOT NULL UNIQUE,
-    "name" varchar(100) NOT NULL,
-    "html_name" text NOT NULL ,
+    "name" text NOT NULL,
     "description" text NOT NULL,
     "priority" int NOT NULL,
     "employee" uuid,

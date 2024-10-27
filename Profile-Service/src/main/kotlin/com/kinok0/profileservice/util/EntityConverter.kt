@@ -16,8 +16,8 @@ fun UserEntity.convertToProfileDTO() = Profile(
 )
 
 fun TaskEntity.convertToTaskDTO(): Task {
-    val result: Task = Task(
-        name = this.htmlName,
+    val result = Task(
+        name = this.name,
         descryption = this.description,
         employee = this.employee?.convertToUserDTO(),
         createDate = this.createDate,
