@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/Gateway" />
             <option value="$PROJECT_DIR$/Kanban-Service" />
             <option value="$PROJECT_DIR$/Migration-Service" />
+            <option value="$PROJECT_DIR$/Profile-Service" />
           </set>
         </option>
       </GradleProjectSettings>

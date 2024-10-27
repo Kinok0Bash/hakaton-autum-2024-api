@@ -18,6 +18,9 @@ gateway:
     - id: kanban-service
       path: /api/kanban/**
       uri: lb://kanban-service
+    - id: profile-service
+      path: /api/profile/**
+      uri: lb://profile-service
 
 server:
   port: 8080
