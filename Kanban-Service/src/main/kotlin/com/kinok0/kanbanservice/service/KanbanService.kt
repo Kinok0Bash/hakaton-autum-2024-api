@@ -10,6 +10,7 @@ import com.kinok0.kanbanservice.repository.UserRepository
 import com.kinok0.kanbanservice.util.convertToTaskDTO
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDateTime
 import java.util.*
 
@@ -98,6 +99,7 @@ class KanbanService(
         return response.convertToTaskDTO()
     }
 
+    @Transactional
     fun deleteTask(id: UUID): String {
         taskRepository.deleteTaskEntityById(id)
         return "Task $id successful"

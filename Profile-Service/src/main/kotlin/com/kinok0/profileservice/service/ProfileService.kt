@@ -6,6 +6,7 @@ import com.kinok0.profileservice.util.JwtException
 import com.kinok0.profileservice.util.convertToProfileDTO
 import org.springframework.stereotype.Service
 import java.util.*
+
 @Service
 class ProfileService(
     private val userRepository: UserRepository,
