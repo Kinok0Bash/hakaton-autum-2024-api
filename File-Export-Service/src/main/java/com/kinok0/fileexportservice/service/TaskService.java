@@ -3,14 +3,12 @@ package com.kinok0.fileexportservice.service;
 import com.kinok0.fileexportservice.entity.TaskEntity;
 import com.kinok0.fileexportservice.repository.TaskRepository;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -74,7 +72,7 @@ public class TaskService {
             nameCell.setCellStyle(dataStyle);
 
             Cell descriptionCell = row.createCell(1);
-            descriptionCell.setCellValue(task.getDescription());
+            descriptionCell.setCellValue(convertHtmlTextToText(task.getDescription()));
             descriptionCell.setCellStyle(dataStyle);
 
             Cell employeeCell = row.createCell(2);
@@ -99,6 +97,10 @@ public class TaskService {
             log.error(e.getMessage());
         }
         return null;
+    }
+
+    private String convertHtmlTextToText(String htmlText){
+        return htmlText.replaceAll("<[^>]+>", "");
     }
 
 
