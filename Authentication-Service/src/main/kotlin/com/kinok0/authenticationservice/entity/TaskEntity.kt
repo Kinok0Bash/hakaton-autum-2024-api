@@ -6,7 +6,7 @@ import java.util.*
 
 @Entity
 @Table(name = "tasks")
-data class TaskEntity (
+data class TaskEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
@@ -18,11 +18,14 @@ data class TaskEntity (
     @Column(name = "description", nullable = false)
     var description: String,
 
+    @Column(name = "priority", nullable = false)
+    var priority: Int,
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee", referencedColumnName = "id", nullable = false)
-    var employee: UserEntity,
+    var employee: UserEntity? = null,
 
-    @Column(name="create_date", nullable = false)
+    @Column(name = "create_date", nullable = false)
     var createDate: LocalDateTime,
 
     @Column(name = "statement", nullable = false)
@@ -31,4 +34,5 @@ data class TaskEntity (
     @OneToMany(mappedBy = "task", fetch = FetchType.LAZY)
     var comments: MutableList<CommentEntity>? = null
 )
+
 
