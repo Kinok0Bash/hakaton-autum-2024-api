@@ -49,7 +49,7 @@ class KanbanService(
         taskRepository.save(
             TaskEntity(
                 name = request.name,
-                description = request.name,
+                description = request.description,
                 createDate = LocalDateTime.now(),
                 statement = TaskStatement.BACKLOG,
                 priority = 0
