@@ -14,7 +14,7 @@ import java.util.*
 class KanbanController(private val kanbanService: KanbanService) {
     private val logger = LoggerFactory.getLogger(KanbanController::class.java)
 
-    @GetMapping("")
+    @GetMapping("/")
     fun getKanban(): ResponseEntity<ArrayList<KanbanColumn>> {
         logger.info("Request to get kanban!")
         return ResponseEntity.ok(kanbanService.getKanban())

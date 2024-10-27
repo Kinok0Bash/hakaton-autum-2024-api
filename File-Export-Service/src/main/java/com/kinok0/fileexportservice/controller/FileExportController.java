@@ -20,7 +20,7 @@ import java.time.format.DateTimeFormatter;
 public class FileExportController {
     private TaskService taskService;
 
-    @GetMapping()
+    @GetMapping("/download")
     public ResponseEntity<byte[]> exportFile() {
         byte[] excelFile = taskService.exportTasksToExcel();
         HttpHeaders headers = new HttpHeaders();

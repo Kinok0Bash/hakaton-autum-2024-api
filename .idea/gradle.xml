@@ -11,17 +11,11 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Authentication-Service" />
             <option value="$PROJECT_DIR$/Eureka-Server" />
+            <option value="$PROJECT_DIR$/File-Export-Service" />
             <option value="$PROJECT_DIR$/Gateway" />
             <option value="$PROJECT_DIR$/Kanban-Service" />
             <option value="$PROJECT_DIR$/Migration-Service" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/File-Export-Service" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/File-Export-Service" />
+            <option value="$PROJECT_DIR$/Profile-Service" />
           </set>
         </option>
       </GradleProjectSettings>

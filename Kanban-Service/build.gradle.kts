@@ -20,6 +20,8 @@ repositories {
 	mavenCentral()
 }
 
+extra["springCloudVersion"] = "2023.0.3"
+
 dependencies {
 	// Kotlin
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -41,11 +43,20 @@ dependencies {
 //	runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")
 //	runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.5")
 
+	// Eureka
+	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+
 	// Tests
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	testImplementation("org.springframework.security:spring-security-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+dependencyManagement {
+	imports {
+		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+	}
 }
 
 kotlin {

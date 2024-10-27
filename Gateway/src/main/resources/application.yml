@@ -13,11 +13,14 @@ gateway:
       path: /api/authentication/**
       uri: lb://authentication-service
     - id: file-export-service
-      path: /api/file-export
+      path: /api/export-file/**
       uri: lb://file-export-service
     - id: kanban-service
       path: /api/kanban/**
       uri: lb://kanban-service
+    - id: profile-service
+      path: /api/profile/**
+      uri: lb://profile-service
 
 server:
   port: 8080

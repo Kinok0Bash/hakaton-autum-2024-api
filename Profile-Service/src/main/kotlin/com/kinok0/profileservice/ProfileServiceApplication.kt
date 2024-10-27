@@ -1,4 +1,4 @@
-package com.kinok0.kanbanservice
+package com.kinok0.profileservice
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -7,9 +7,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableJpaRepositories(basePackages = ["com.kinok0.kanbanservice.repository"])
-class KanbanServiceApplication
+@EnableJpaRepositories(basePackages = ["com.kinok0.profileservice.repository"])
+class ProfileServiceApplication
 
 fun main(args: Array<String>) {
-	runApplication<KanbanServiceApplication>(*args)
+    runApplication<ProfileServiceApplication>(*args)
 }
