@@ -6,6 +6,7 @@ import com.kinok0.profileservice.util.JwtException
 import com.kinok0.profileservice.util.convertToProfileDTO
 import org.springframework.stereotype.Service
 import java.util.*
+import kotlin.collections.ArrayList
 
 @Service
 class ProfileService(
@@ -25,6 +26,14 @@ class ProfileService(
         val entity = userRepository.getUserEntityByLogin(jwtService.extractUsername(token))
         entity.name = name
         return userRepository.save(entity).convertToProfileDTO()
+    }
+
+    fun getFullProfileList() : MutableList<Profile> {
+        val response: ArrayList<Profile> = ArrayList()
+        userRepository.findAll().forEach { entity ->
+            response.add(entity.convertToProfileDTO())
+        }
+        return response
     }
 
     fun changePosition(token: String, position: String): Profile {
