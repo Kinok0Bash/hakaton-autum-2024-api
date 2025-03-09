@@ -47,6 +47,10 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
+tasks.jar {
+	enabled = false
+}
+
 tasks.bootJar {
 	archiveFileName.set("migration-service.jar")
 }

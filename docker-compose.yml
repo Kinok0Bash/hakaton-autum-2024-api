@@ -11,8 +11,6 @@ services:
     build:
       context: Migration-Service
       dockerfile: Dockerfile
-      args:
-        - JAR_NAME=migration-service.jar
     image: flyway:latest
     container_name: flyway
     networks:
@@ -24,8 +22,6 @@ services:
     build:
       context: Eureka-Server
       dockerfile: Dockerfile
-      args:
-        - JAR_NAME=eureka-server.jar
     image: eureka-server:latest
     container_name: eureka-server
     networks:
@@ -38,8 +34,6 @@ services:
     build:
       context: Authentication-Service
       dockerfile: Dockerfile
-      args:
-        - JAR_NAME=auth-service-1.0.jar
     image: auth-service:latest
     container_name: auth-service
     ports:
@@ -50,8 +44,6 @@ services:
     build:
       context: Kanban-Service
       dockerfile: Dockerfile
-      args:
-        - JAR_NAME=kanban-service.jar
     image: kanban-service:latest
     container_name: kanban-service
     ports:
@@ -62,8 +54,6 @@ services:
     build:
       context: Profile-Service
       dockerfile: Dockerfile
-      args:
-        - JAR_NAME=profile-service.jar
     image: profile-service:latest
     container_name: profile-service
     ports:
@@ -74,8 +64,6 @@ services:
     build:
       context: File-Export-Service
       dockerfile: Dockerfile
-      args:
-        - JAR_NAME=file-export-service.jar
     image: file-export-service:latest
     container_name: file-export-service
     ports:
@@ -85,8 +73,6 @@ services:
     build:
       context: Gateway
       dockerfile: Dockerfile
-      args:
-        - JAR_NAME=gateway.jar
     image: gateway:latest
     container_name: gateway
     depends_on:

@@ -66,7 +66,7 @@ jobs:
 
       - name: Copy JAR to server
         run: |
-          sudo cp /tmp/hack/*.jar ${{ env.TARGET_DIR }}/jars
+          sudo cp /tmp/hack/**/*.jar ${{ env.TARGET_DIR }}
           sudo rm -r /tmp/hack
 
       - name: Build and deploy with Docker Compose

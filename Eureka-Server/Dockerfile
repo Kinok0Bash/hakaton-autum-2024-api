@@ -1,4 +1,4 @@
-FROM openjdk:21-slim
+FROM openjdk:21
 EXPOSE 8761
-COPY *.jar app.jar
+COPY ./build/libs/*.jar app.jar
 CMD ["java","-jar","app.jar"]
