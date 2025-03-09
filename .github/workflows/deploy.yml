@@ -62,7 +62,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: app-jars
-          path: ${{ env.TARGET_DIR }}/jars
+          path: /tmp/hack
+
+      - name: Copy JAR to server
+        run: |
+          sudo cp /tmp/hack/*.jar ${{ env.TARGET_DIR }}/jars
+          sudo rm -r /tmp/hack
 
       - name: Build and deploy with Docker Compose
         run: |
