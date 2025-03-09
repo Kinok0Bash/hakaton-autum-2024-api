@@ -75,6 +75,10 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
+tasks.jar {
+	enabled = false
+}
+
 tasks.bootJar {
 	archiveFileName.set("kanban-service.jar")
 }
