@@ -59,3 +59,7 @@ allOpen {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+tasks.bootJar {
+    archiveFileName.set("profile-service.jar")
+}

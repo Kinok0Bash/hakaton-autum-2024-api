@@ -74,3 +74,7 @@ allOpen {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+tasks.bootJar {
+	archiveFileName.set("kanban-service.jar")
+}

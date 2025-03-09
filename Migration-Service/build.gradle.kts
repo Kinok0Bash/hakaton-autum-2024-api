@@ -47,18 +47,6 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
-publishing {
-	publications {
-		create<MavenPublication>("mavenJava") {
-			from(components["java"])
-
-			groupId = "com.kinok0"
-			artifactId = "migration-service"
-			version = "1.0.0"
-		}
-	}
-
-	repositories {
-		mavenLocal()
-	}
+tasks.bootJar {
+	archiveFileName.set("migration-service.jar")
 }

@@ -46,3 +46,7 @@ dependencyManagement {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+tasks.bootJar {
+    archiveFileName.set("file-export-service.jar")
+}

@@ -1,24 +1,32 @@
-version: '3'
+version: '3.8'
+
+x-common-config: &common-config
+  networks:
+    - backend
+  depends_on:
+    - eureka-server
 
 services:
   flyway:
     build:
-      dockerfile: ./Dockerfile
       context: Migration-Service
-    image: flyway
+      dockerfile: Dockerfile
+      args:
+        - JAR_NAME=migration-service.jar
+    image: flyway:latest
     container_name: flyway
     networks:
       - backend
-    volumes:
-      - /root/.m2:/root/.m2
     ports:
       - "8100:8100"
 
   eureka-server:
     build:
-      dockerfile: ./Dockerfile
       context: Eureka-Server
-    image: eureka-server
+      dockerfile: Dockerfile
+      args:
+        - JAR_NAME=eureka-server.jar
+    image: eureka-server:latest
     container_name: eureka-server
     networks:
       - backend
@@ -26,62 +34,60 @@ services:
       - "8761:8761"
 
   auth-service:
+    <<: *common-config
     build:
-      dockerfile: ./Dockerfile
       context: Authentication-Service
-    image: auth-service
+      dockerfile: Dockerfile
+      args:
+        - JAR_NAME=auth-service-1.0.jar
+    image: auth-service:latest
     container_name: auth-service
-    depends_on:
-      - eureka-server
-    networks:
-      - backend
     ports:
       - "8081:8081"
 
   kanban-service:
+    <<: *common-config
     build:
-      dockerfile: ./Dockerfile
       context: Kanban-Service
-    image: kanban-service
+      dockerfile: Dockerfile
+      args:
+        - JAR_NAME=kanban-service.jar
+    image: kanban-service:latest
     container_name: kanban-service
-    depends_on:
-      - eureka-server
-    networks:
-      - backend
     ports:
       - "8082:8082"
 
   profile-service:
+    <<: *common-config
     build:
-      dockerfile: ./Dockerfile
       context: Profile-Service
-    image: profile-service
-    container_name: kanban-service
-    depends_on:
-      - eureka-server
-    networks:
-      - backend
+      dockerfile: Dockerfile
+      args:
+        - JAR_NAME=profile-service.jar
+    image: profile-service:latest
+    container_name: profile-service
     ports:
       - "8083:8083"
-      
+
   file-export-service:
+    <<: *common-config
     build:
-      dockerfile: ./Dockerfile
       context: File-Export-Service
-    image: file-service
-    container_name: file-service
-    depends_on:
-      - eureka-server
-    networks:
-      - backend
+      dockerfile: Dockerfile
+      args:
+        - JAR_NAME=file-export-service.jar
+    image: file-export-service:latest
+    container_name: file-export-service
     ports:
       - "8090:8090"
 
   gateway:
     build:
-      dockerfile: ./Dockerfile
       context: Gateway
-    image: gateway
+      dockerfile: Dockerfile
+      args:
+        - JAR_NAME=gateway.jar
+    image: gateway:latest
     container_name: gateway
     depends_on:
       - auth-service
@@ -92,3 +98,4 @@ services:
 
 networks:
   backend:
+    external: true

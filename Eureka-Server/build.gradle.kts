@@ -43,3 +43,7 @@ kotlin {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+tasks.bootJar {
+	archiveFileName.set("eureka-server.jar")
+}
